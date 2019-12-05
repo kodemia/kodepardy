@@ -1,0 +1,13 @@
+.grid-container{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    grid-template-rows:repeat(6, 50px)
+}
+
+.body-cell{
+    transition:all 500ms ease;
+}
+
+.disabled{
+    background:#cdcdcd
+}

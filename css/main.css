@@ -1,0 +1,18 @@
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: (50px)[6];
+      grid-template-rows: repeat(6, 50px);
+}
+
+.body-cell {
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.disabled {
+  background: #cdcdcd;
+}
+/*# sourceMappingURL=main.css.map */
