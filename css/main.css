@@ -3,8 +3,8 @@
   display: grid;
   -ms-grid-columns: (1fr)[5];
       grid-template-columns: repeat(5, 1fr);
-  -ms-grid-rows: (50px)[6];
-      grid-template-rows: repeat(6, 50px);
+  -ms-grid-rows: (60px)[5];
+      grid-template-rows: repeat(5, 60px);
 }
 
 .body-cell {
