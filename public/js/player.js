@@ -11,13 +11,7 @@ questionRef.on("value",( snapshot ) => {
     } else if( currentQuestion && !currentQuestion.isAnswered){
         updatePlayerQuestion(currentQuestion)
     } else if (currentQuestion.isAnswered){
-        $('#answered-modal').modal('show');
-        $('#answered-modal').on('shown.bs.modal', e => {
-            setTimeout(() => {
-                clearPlayerPanel()
-                $('#answered-modal').modal('hide');
-            }, 2000)
-        })
+        showMessageModal("answered")
     }
 })
 
@@ -47,30 +41,26 @@ const getPlayerAnswer = (event) => {
     showMessageModal(correctAnswer)
 }
 
-const showMessageModal = ( correctAnswer) => {
-    const modalContent = [
-        {
-            modalTitle:"¡¡¡Felicidades!!!",
-            modalText:`Tu respuesta es correcta, has ganado ${questionScore} puntos.`
-        },
-        {
-            modalTitle:"¡¡¡Nooooo!!!",
-            modalText:"Tu respuesta es incorrecta, ¡suerte para la próxima!"  
-        }
-    ]
+const showMessageModal = ( status ) => {
+    switch ( status ) {
+        case true:
+            $('#message-modal .modal-title').text("¡¡¡Felicidades!!!");
+            $('#message-modal .modal-text').text(`Tu respuesta es correcta, has ganado ${questionScore} puntos.`);
+            $('#message-modal').modal('show');
+            break;
+        
+        case false:
+            $('#message-modal .modal-title').text("¡¡¡Nooooo!!!");
+            $('#message-modal .modal-text').text("Tu respuesta es incorrecta, ¡suerte para la próxima!");
+            $('#message-modal').modal('show');
+            break;
 
-    let selectedContent = {};
-
-    correctAnswer ? ( updateCurrentQuestion(), selectedContent = modalContent[0]) : selectedContent = modalContent[1]
-    $('#message-modal .modal-title').text(selectedContent.modalTitle);
-    $('#message-modal .modal-text').text(selectedContent.modalText);
-
-    $('#message-modal').modal('show')
-    $('#message-modal').on('shown.bs.modal', e => {
-        setTimeout(() => {
-            $('#message-modal').modal('hide')
-        }, 2000)
-    })
+        case 'answered':
+            $('#message-modal .modal-title').text("¡¡¡Ups!!!");
+            $('#message-modal .modal-text').text("Alguien ha respondido antes que tú, ¡suerte para la próxima!");
+            $('#message-modal').modal('show');
+            break;
+    }
 }
 
 const updateCurrentQuestion = () => {
