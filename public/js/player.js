@@ -54,7 +54,7 @@ const showMessageModal = ( status ) => {
             $('#message-modal').on('shown.bs.modal', () => {
                 setTimeout(() => {
                     $('#message-modal').removeClass('answered').modal('hide')
-                },2000)
+                },3000)
             })
             updateCurrentQuestion();
             break;
@@ -66,7 +66,7 @@ const showMessageModal = ( status ) => {
             $('#message-modal').on('shown.bs.modal', () => {
                 setTimeout(() => {
                     $('#message-modal').removeClass('answered').modal('hide')
-                },2000)
+                },3000)
             })
             break;
 
@@ -77,7 +77,7 @@ const showMessageModal = ( status ) => {
             $('#message-modal').on('shown.bs.modal', () => {
                 setTimeout(() => {
                     $('#message-modal').removeClass('answered').modal('hide')
-                },2000)
+                },3000)
             })
             break;
     }
