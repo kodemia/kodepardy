@@ -12,12 +12,35 @@
 </head>
 
 <body>
+    <div class="modal fade" id="message-modal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="message-modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1 class="modal-title"></h1>
+                    <p class="modal-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="answered-modal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="answered-modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1 class="modal-title">¡¡¡Ups!!</h1>
+                    <p class="modal-text">Alguien ha respondido antes que tú, suerte para la próxima</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-6">
+            <div class="col-12">
                 <div class="row">
                     <div class="col-12 questions-text-wrapper">
-                        <h1 class="question-category text-center text-danger text-italic"></h1>
+                        <h1 class="question-category text-center text-danger"></h1>
+                        <h3 class="question-score"></h3>
                         <p class="question-text"></p>
                         <div class="answers-wrapper">
 

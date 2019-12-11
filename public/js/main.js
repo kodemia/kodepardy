@@ -1,4 +1,4 @@
-let questions = {
+/*let questions = {
     "questions": [{
         "answers": [{
             "isCorrect": false,
@@ -70,12 +70,21 @@ let questions = {
         "points": 400,
         "text": "Este método de JQuery sirve para intercambiar entre dos clases de un elemento:"
     }]
-}
+}*/
+
+let questions = {};
 
 var database = firebase.database();
+var questionsReference = database.ref('questions')
+
+questionsReference.on('value', snapshot => {
+    console.log(snapshot.val())
+    questions = snapshot.val();
+    fillGrid(questions);
+})
 
 const setCurrentQuestion = question => {
-    firebase.database().ref('currentQuestion/0').set(question);
+    firebase.database().ref('currentQuestion').set({...question,isAnswered:false});
 }
 
 let activeCells;
@@ -101,8 +110,8 @@ $('#roulette-start').on('click', () => {
     startRoulette();
 })
 
-const fillGrid = () => {
-    questions.questions.forEach((item, index) => {
+const fillGrid = questions => {
+    questions.forEach((item, index) => {
         $('.grid-container').append(`
             <div data-question-id=${index} class="body-cell m-1 text-center d-flex align-items-center border border-rounded color-white">${item.points} puntos</div>
         `)
@@ -111,8 +120,8 @@ const fillGrid = () => {
 
 const setSelectedQuestion = () => {
     let questionIndex = $('.body-cell.bg-success').data('question-id');
-    console.log(questions.questions[questionIndex])
-    let selectedQuestion = questions.questions[questionIndex];
+    console.log(questions[questionIndex])
+    let selectedQuestion = questions[questionIndex];
     let answers = selectedQuestion.answers;
     $('.question-category').text(selectedQuestion.category)
     $('.question-text').text(selectedQuestion.text);
@@ -124,7 +133,3 @@ const setSelectedQuestion = () => {
     })
     setCurrentQuestion(selectedQuestion)
 }
-
-fillGrid();
-
-console.log(questions.questions)
