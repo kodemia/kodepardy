@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kodepardy</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
@@ -13,47 +14,80 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="circle-bg"></div>
+    <nav class="container">
+        <div class="row py-3">
+            <div class="col-12 d-flex justify-content-between align-items-center">
+                <img src="img/cube-icon.png" alt="">
+                <div class="btn btn-next text-white px-0">
+                    Score
+                    <img class="ml-3" src="img/right-arrow.png" alt="">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
-                KODEPARDY
-            </div>
             <div class="col-12 col-sm-6">
-                <div
-                    class="grid-header border border-rounded bg-primary color-white text-center d-flex justify-content-around text-center">
-                    <div class="header-cell">HTML</div>
-                    <div class="header-cell">CSS</div>
-                    <div class="header-cell">JS/JQUERY</div>
-                    <div class="header-cell">BOOTSTRAP</div>
-                    <div class="header-cell">FIREBASE</div>
-                </div>
-                <div class="grid-container my-3 border border-rounded border-primary flex-wrap justify-content-around">
-
-                </div>
-                <div class="button-wrapper">
-                    <div id="roulette-start" class="btn btn-outline-primary">Iniciar</div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6">
-                <div class="row">
-                    <div class="col-12 questions-text-wrapper">
-                        <h1 class="question-category text-center text-danger text-italic"></h1>
-                        <p class="question-text"></p>
-                        <div class="answers-wrapper">
-
+                <div class="grid-container d-flex">
+                    <hr class="bg-blue-gradient">
+                    <div class="grid-column text-center">
+                        <div class="column-heading">
+                            HTML
                         </div>
+                        <div class="column-body html"></div>
                     </div>
-                    <div class="col-12 best-ranking-wrapper">
-
+                    <div class="grid-column text-center">
+                        <div class="column-heading">
+                            CSS
+                        </div>
+                        <div class="column-body css"></div>
                     </div>
+                    <div class="grid-column text-center">
+                        <div class="column-heading">
+                            JS/JQUERY
+                        </div>
+                        <div class="column-body js"></div>
+                    </div>
+                    <div class="grid-column text-center ">
+                        <div class="column-heading">
+                            Bootstrap
+                        </div>
+                        <div class="column-body bootstrap"></div>
+                    </div>
+                    <div class="grid-column text-center ">
+                        <div class="column-heading">
+                            Firebase
+                        </div>
+                        <div class="column-body firebase"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-5 offset-sm-1">
+                <div class="btn custom-btn  border-gradient-orange mb-3 d-block w-25 mx-auto"><div>INICIAR</div></div>
+                <p class="question-text text-center text-white">¿Cuál es la manera correcta para establecer el azul como color de fondo de
+                    aquellos div que posean la clase "fondo-azul"?</p>
+                <div class="answers-wrapper">
+                    <div class="btn btn-answer w-100 blue">Un objeto</div>
+                    <div class="btn btn-answer w-100 yellow">Un array de elementos con la clase "someClass"</div>
+                    <div class="btn btn-answer w-100 magenta">El elemento con el identificador "someClass"</div>
                 </div>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-end">
+                    <img src="img/logo-white.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase.js"></script>
-    
+
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -72,7 +106,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
-    
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
