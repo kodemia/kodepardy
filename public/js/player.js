@@ -65,17 +65,33 @@ const showMessageModal = ( status ) => {
 
             let playerKey =  localStorage.getItem('playerKey');
             
+            
+            const addScore = () => {
+                $.ajax({
+                    url: `https://kodepardy.firebaseio.com/players/${playerKey}.json`,
+                    method:"GET",
+                    success: (response) => {
+                        playerData = response;
+                        console.log(playerData)
+                        let newScore = playerData.playerScore + questionScore;
+                        database.ref(`/players/${playerKey}`).set({...playerData,playerScore:newScore})
+                    }
+                  });
+            }
 
             $.ajax({
-                url: `https://kodepardy.firebaseio.com/players/${playerKey}.json`,
+                url: `https://kodepardy.firebaseio.com/currentQuestion.json`,
                 method:"GET",
                 success: (response) => {
-                    playerData = response;
-                    console.log(playerData)
-                    let newScore = playerData.playerScore + questionScore;
-                    database.ref(`/players/${playerKey}`).set({...playerData,playerScore:newScore})
+                    let answered = response.isAnswered
+                    !answered ? addScore : null
                 }
               });
+            
+
+              
+
+              
 
     
             break;
