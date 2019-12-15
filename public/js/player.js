@@ -7,7 +7,8 @@ var currentQuestion;
 var playerData = {};
 
 $(document).ready(() => {
-    $("#login-modal").modal("show")
+    let playerLogged = localStorage.getItem('playerKey');
+    !playerLogged ? $("#login-modal").modal("show") : null
 })
 
 
@@ -116,5 +117,18 @@ const savePlayer = () => {
     localStorage.setItem('playerKey', playerKey);
 
     console.log(playerObject)
+
+    $("#login-modal").modal("hide");
 }
+
+playersRef.on("value", (snapshot) => {
+    console.log(snapshot.val())
+    let playersList = snapshot.val();
+    $(".best-ranking-wrapper").empty();
+    $.each(playersList, (key, value) => {
+        $(".best-ranking-wrapper").append(`
+            <div class="btn btn-warning mb-2 d-block">${value.playerName} tiene ${value.playerScore}</div>
+        `)
+    })
+})
 
