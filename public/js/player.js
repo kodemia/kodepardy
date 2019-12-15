@@ -14,6 +14,7 @@ $(document).ready(() => {
 
 questionRef.on("value",( snapshot ) => {
     currentQuestion = snapshot.val();
+    $('#message-modal').removeClass('answered').modal("hide")
     if( !currentQuestion){
         clearPlayerPanel();
     } else if( currentQuestion && !currentQuestion.isAnswered){
@@ -59,11 +60,7 @@ const showMessageModal = ( status ) => {
             $('#message-modal .modal-title').text("¡¡¡Felicidades!!!");
             $('#message-modal .modal-text').text(`Tu respuesta es correcta, has ganado ${questionScore} puntos.`);
             $('#message-modal').addClass("answered").modal('show');
-            $('#message-modal').on('shown.bs.modal', () => {
-                setTimeout(() => {
-                    $('#message-modal').removeClass('answered').modal('hide')
-                },3000)
-            })
+            
             updateCurrentQuestion();
 
             let playerKey =  localStorage.getItem('playerKey');
@@ -87,22 +84,14 @@ const showMessageModal = ( status ) => {
             $('#message-modal:not(".answered") .modal-title').text("¡¡¡Nooooo!!!");
             $('#message-modal:not(".answered") .modal-text').text("Tu respuesta es incorrecta, ¡suerte para la próxima!");
             $('#message-modal').modal('show');
-            $('#message-modal').on('shown.bs.modal', () => {
-                setTimeout(() => {
-                    $('#message-modal').removeClass('answered').modal('hide')
-                },3000)
-            })
+            
             break;
 
         case 'answered':
             $('#message-modal:not(".answered") .modal-title').text("¡¡¡Ups!!!");
             $('#message-modal:not(".answered") .modal-text').text("Alguien ha respondido antes que tú, ¡suerte para la próxima!");
             $('#message-modal').modal('show');
-            $('#message-modal').on('shown.bs.modal', () => {
-                setTimeout(() => {
-                    $('#message-modal').removeClass('answered').modal('hide')
-                },3000)
-            })
+            
             break;
     }
 }
