@@ -1,7 +1,14 @@
 var database = firebase.database();
 
 var questionRef = database.ref("/currentQuestion");
+var playersRef = database.ref("/players");
 var currentQuestion;
+
+var playerData = {};
+
+$(document).ready(() => {
+    $("#login-modal").modal("show")
+})
 
 
 questionRef.on("value",( snapshot ) => {
@@ -57,6 +64,22 @@ const showMessageModal = ( status ) => {
                 },3000)
             })
             updateCurrentQuestion();
+
+            let playerKey =  localStorage.getItem('playerKey');
+            
+
+            $.ajax({
+                url: `https://kodepardy.firebaseio.com/players/${playerKey}.json`,
+                method:"GET",
+                success: (response) => {
+                    playerData = response;
+                    console.log(playerData)
+                    let newScore = playerData.playerScore + questionScore;
+                    database.ref(`/players/${playerKey}`).set({...playerData,playerScore:newScore})
+                }
+              });
+
+    
             break;
         
         case false:
@@ -81,5 +104,17 @@ const showMessageModal = ( status ) => {
             })
             break;
     }
+}
+
+const savePlayer = () => {
+    let playerName = $("#user-name").val();
+    let playerObject = {}
+    playerObject.playerName = playerName;
+    playerObject.playerScore = 0;
+    let playerKey = playersRef.push(playerObject).key;  // key === "last"
+    console.log(playerKey)
+    localStorage.setItem('playerKey', playerKey);
+
+    console.log(playerObject)
 }
 
