@@ -10,11 +10,74 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
-
 </head>
-
 <body>
-    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-3">Kodepardy</h1>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="game-wrapper w-100 border border-danger p-3 rounded d-flex justify-content-around">
+                    <div class="game-column flex-grow-1">
+                        <div class="column-title p-2 m-2 rounded bg-secondary text-white text-center">HTML</div>
+                        <div id="html" class="column-body">
+                            <!--div class="game-cell border border-secondary rounded text-center p-2 m-1">100 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">200 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">300 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">400 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">500 pts</div-->
+                        </div>
+                    </div>
+                    <div class="game-column flex-grow-1">
+                        <div class="column-title p-2 m-2 rounded bg-secondary text-white text-center">CSS</div>
+                        <div id="css" class="column-body">
+                            <!--div class="game-cell border border-secondary rounded text-center p-2 m-1">100 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">200 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">300 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">400 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">500 pts</div-->
+                        </div>
+                    </div>
+                    <div class="game-column flex-grow-1">
+                        <div class="column-title p-2 m-2 rounded bg-secondary text-white text-center">JS/JQUERY</div>
+                        <div id="js" class="column-body">
+                            <!--div class="game-cell border border-secondary rounded text-center p-2 m-1">100 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">200 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">300 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">400 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">500 pts</div-->
+                        </div>
+                    </div>
+                    <div class="game-column flex-grow-1">
+                        <div class="column-title p-2 m-2 rounded bg-secondary text-white text-center">BOOTSTRAP</div>
+                        <div id="bootstrap" class="column-body">
+                            <!--div class="game-cell border border-secondary rounded text-center p-2 m-1">100 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">200 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">300 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">400 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">500 pts</div-->
+                        </div>
+                    </div>
+                    <div class="game-column flex-grow-1">
+                        <div class="column-title p-2 m-2 rounded bg-secondary text-white text-center">FIREBASE</div>
+                        <div id="firebase" class="column-body">
+                            <!--div class="game-cell border border-secondary rounded text-center p-2 m-1">100 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">200 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">300 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">400 pts</div>
+                            <div class="game-cell border border-secondary rounded text-center p-2 m-1">500 pts</div-->
+                        </div>
+                    </div>
+                </div>
+                <div class="btn btn-primary mt-3 w-50 mx-auto d-block" onclick="startGame();">Iniciar</div>
+            </div>
+            <div class="col-12 col-md-6"></div>
+        </div>
+    </div>
+
+
+
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase.js"></script>

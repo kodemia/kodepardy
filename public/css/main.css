@@ -1,7 +1,5 @@
-body {
-  background: #1E1B2F;
-  font-family: 'Raleway', sans-serif;
-  overflow-x: hidden;
+.game-column{
+  width:20%;
 }
 
 nav {
